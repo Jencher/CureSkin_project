@@ -6,7 +6,7 @@ driver.find_element(By.ID, 'continue')
 
 # Need help link
 driver.find_element(By.XPATH, "//span[@class='a-expander-prompt']")
-
+git
 # Forgot your password link
 driver.find_element(By.ID, 'auth-fpp-link-bottom')
 
