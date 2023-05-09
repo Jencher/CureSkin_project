@@ -14,13 +14,12 @@ driver = webdriver.Chrome(service=service)
 driver.get('https://www.amazon.com/')
 driver.find_element(By.ID, 'nav-orders').click()
 
-expected_result_1 = "Sign in"
-actual_result_1 = driver.find_element(By.XPATH, "//h1[@class='a-spacing-small']").text
-assert expected_result_1 == actual_result_1, f'Error! Expected {expected_result_1} bot got actual {actual_result_1}'
+expected_result = "Sign in"
+actual_result = driver.find_element(By.XPATH, "//h1[@class='a-spacing-small']").text
+assert expected_result == actual_result, f'Error! Expected {expected_result} bot got actual {actual_result}'
 
-expected_result_2 = driver.find_element(By.ID,'ap_email')
-actual_result_2 = driver.find_element(By.ID,'ap_email')
-assert expected_result_2 == actual_result_2, f'Error! Expected {expected_result_2} bot got actual {actual_result_2}'
+#Verify email field presented
+assert driver.find_element(By.ID,'ap_email').is_displayed(), 'Email field not shown'
 
 
 print('Test case passed!')
