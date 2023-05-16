@@ -94,3 +94,7 @@ app_binaries/
 
 # Screenshots
 *.png
+
+
+# instructor files from lessons
+instructor_files/

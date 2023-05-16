@@ -27,6 +27,8 @@ driver.find_element(By.CSS_SELECTOR, "a[href*='ap_register_notification_conditio
 
 # Privacy Notice
 driver.find_element(By.CSS_SELECTOR, "a[href*='ap_register_notification_privacy_notice']")
+# or
+#driver.find_element(By.CSS_SELECTOR, "#legalTextRow a[href*='ap_register_notification_privacy_notice']")
 
 # Sign in
 driver.find_element(By.CSS_SELECTOR, "a.a-link-emphasis[href*='/ap/signin?']")
