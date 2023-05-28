@@ -10,6 +10,7 @@ SEARCH_HELP_TEXT = (By.XPATH, "//h2[text()='Search our help library']")
 ALL_HELP_TOPICS = (By.XPATH, "//h2[text()='All help topics']")
 HELP_TOPICS_MENU = (By.CSS_SELECTOR, ".help-topics-list-wrapper")
 
+
 @given('Open Amazon Customer Service page')
 def open_customer_service_page(context):
     context.driver.get('https://www.amazon.com/gp/help/customer/display.html')
@@ -21,17 +22,20 @@ def verify_welcome_text(context):
     actual_result = context.driver.find_element(*WELCOME_HEADER).text
     assert expected_result == actual_result, f'Error! Expected {expected_result} bot got actual {actual_result}'
 
+
 @then ('Verify {expected_boxes} help boxes are displayed')
 def verify_boxes(context, expected_boxes):
     expected_boxes = int(expected_boxes)
     actual_boxes = context.driver.find_elements(*HELP_BOXES)
     assert len(actual_boxes) == expected_boxes, f'Expected {expected_boxes}  boxes, but we see {len(actual_boxes)}'
 
+
 @then('Verify Search our help library text is visible')
 def verify_search_help_text(context):
     expected_result = "Search our help library"
     actual_result = context.driver.find_element(*SEARCH_HELP_TEXT).text
     assert expected_result == actual_result, f'Error! Expected {expected_result} bot got actual {actual_result}'
+
 
 @then('Verify search help input is presented')
 def verify_email_field(context):
