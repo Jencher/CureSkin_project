@@ -26,12 +26,12 @@ def search_amazon(context, search_word):
 @when('Click Orders')
 def click_orders(context):
     context.driver.find_element(*ORDERS_BTN).click()
-    element = context.driver.find_element(*ORDERS_BTN)
-    print('Before refresh: ', element)
-    context.driver.refresh()
-    element = context.driver.find_element(*ORDERS_BTN)
-    print('After refresh: ', element)
-    element.click()
+    # element = context.driver.find_element(*ORDERS_BTN)
+    # print('Before refresh: ', element)
+    # context.driver.refresh()
+    # element = context.driver.find_element(*ORDERS_BTN)
+    # print('After refresh: ', element)
+    # element.click()
 
 
 @when('Verify Orders btn present')
@@ -43,7 +43,6 @@ def click_orders(context):
 def click_sign_in_popup_btn(context):
     context.driver.wait.until(EC.element_to_be_clickable(POPUP_SIGNIN_BTN), message='Signin btn not clickable').click()
 
-#
 
 @when('Wait for {sec_amount} sec')
 def wait_sec(context, sec_amount):
@@ -54,7 +53,6 @@ def wait_sec(context, sec_amount):
 def verify_signin_popup_btn_clickable(context):
     context.driver.wait.until(EC.element_to_be_clickable(POPUP_SIGNIN_BTN),
         message='Signin btn not clickable')
-
 
 
 @then('Verify Sign In disappears')
