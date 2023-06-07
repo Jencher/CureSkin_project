@@ -8,3 +8,4 @@ Feature: Amazon Add Item test
    And Click on Add to cart button
    And Close Banner
    Then Verify cart has 1 item
+   Then Verify cart has Plate

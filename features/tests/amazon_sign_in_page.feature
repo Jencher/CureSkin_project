@@ -5,11 +5,12 @@ Feature: Amazon Sign-in tests
   Scenario: Sign-in page is visible and email field presented
     Given Open Amazon main page
     When Click Orders
+    Then Verify Sign In page opens
     Then Verify sign-in text is visible
     Then Verify email field is presented
 
   Scenario: Sign In page can be opened from SignIn popup
-    Given Open amazon main page
+    Given Open Amazon main page
     When Click on button from SignIn popup
     Then Verify Sign In page opens
 

@@ -13,25 +13,28 @@ POPUP_SIGNIN_BTN = (By.CSS_SELECTOR, "#nav-signin-tooltip .nav-action-signin-but
 
 @given('Open Amazon main page')
 def open_amazon(context):
-    context.driver.get('https://www.amazon.com/')
+    # context.driver.get('https://www.amazon.com/')
+    context.app.main_page.open_main_page()
 
 
 @when('Search for {search_word}')
 def search_amazon(context, search_word):
-    context.driver.find_element(*SEARCH_FILED).send_keys(search_word)
-    context.driver.find_element(*SEARCH_BTN).click()
+    # context.driver.find_element(*SEARCH_FILED).send_keys(search_word)
+    # context.driver.find_element(*SEARCH_BTN).click()
+    context.app.header.search_for_product(search_word)
     # sleep(5)
 
 
 @when('Click Orders')
 def click_orders(context):
-    context.driver.find_element(*ORDERS_BTN).click()
+    # context.driver.find_element(*ORDERS_BTN).click()
     # element = context.driver.find_element(*ORDERS_BTN)
     # print('Before refresh: ', element)
     # context.driver.refresh()
     # element = context.driver.find_element(*ORDERS_BTN)
     # print('After refresh: ', element)
     # element.click()
+    context.app.header.click_orders()
 
 
 @when('Verify Orders btn present')

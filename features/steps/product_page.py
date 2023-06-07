@@ -21,8 +21,9 @@ def open_amazon_product(context, product_id):
 
 @when('Click on Add to cart button')
 def click_add_button(context):
-    context.driver.find_element(*ADD_TO_CART_BUTTON).click()
+    # context.driver.find_element(*ADD_TO_CART_BUTTON).click()
     # sleep(2)
+    context.app.product_page.click_add_to_cart_btn()
 
 
 @when('Store product name')
@@ -33,7 +34,8 @@ def get_product_name(context):
 
 @when('Close Banner')
 def close_banner(context):
-    context.driver.find_element(*BANNER).click()
+    # context.driver.find_element(*BANNER).click()
+    context.app.product_page.close_banner()
 
 
 # ['Army Green', 'Black', 'Blue', 'Brown']
@@ -57,8 +59,3 @@ def verify_can_click_colors(context):
         f'Expected colors {expected_colors} did not match actual {actual_colors}'
 
 
-@then('Verify cart has {expected_count} item')
-def verify_cart_count(context, expected_count):
-    cart_count = context.driver.find_element(*CART).text
-    sleep(10)
-    assert expected_count == cart_count, f'expected {expected_count} items, but got {cart_count}'

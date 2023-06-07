@@ -12,8 +12,9 @@ PRODUCT_IMG = (By.CSS_SELECTOR, "div img.s-image")
 
 @then('Verify search results shown for {expected_result}')
 def verify_search_results(context, expected_result):
-    actual_result = context.driver.find_element(*RESULT_TEXT).text
-    assert expected_result == actual_result, f'Error! Expected {expected_result} bot got actual {actual_result}'
+   # actual_result = context.driver.find_element(*RESULT_TEXT).text
+   # assert expected_result == actual_result, f'Error! Expected {expected_result} bot got actual {actual_result}'
+    context.app.search_results_page.verify_search_results(expected_result)
 
 
 @when('Click on the first product')
