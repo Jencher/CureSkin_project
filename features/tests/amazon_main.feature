@@ -35,3 +35,9 @@ Feature: Amazon Search tests
     When Search for coffee
     Then Verify that every product has a name and an image
 
+  Scenario: Verify that user can search in a department
+    Given Open Amazon main page
+    When Select department grocery
+    When Search for milk
+    Then Verify correct department grocery shown
+

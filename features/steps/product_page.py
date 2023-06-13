@@ -28,7 +28,8 @@ def click_add_button(context):
 
 @when('Store product name')
 def get_product_name(context):
-    context.product_name = context.driver.find_element(*PRODUCT_NAME).text
+    # context.product_name = context.driver.find_element(*PRODUCT_NAME).text
+    context.product_name = context.app.product_page.get_product_name()
     print(f'Current product: {context.product_name}')
 
 
@@ -36,6 +37,11 @@ def get_product_name(context):
 def close_banner(context):
     # context.driver.find_element(*BANNER).click()
     context.app.product_page.close_banner()
+
+
+@when('Hover over New arrivals')
+def hover_over_new_arrivals(context):
+    context.app.product_page.hover_over_new_arrivals()
 
 
 # ['Army Green', 'Black', 'Blue', 'Brown']
@@ -57,5 +63,11 @@ def verify_can_click_colors(context):
 
     assert expected_colors == actual_colors, \
         f'Expected colors {expected_colors} did not match actual {actual_colors}'
+
+
+@then('User can see the deals')
+def verify_deals(context):
+    context.app.product_page.verify_deals()
+
 
 

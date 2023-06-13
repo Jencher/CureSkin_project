@@ -11,6 +11,7 @@ class SignInPage(Page):
         query = '/ap/signin'
         self.verify_url_contains_query(query)
 
+
     def verify_header(self):
         expected_result = "Sign in"
         # actual_result = self.driver.find_element(*self.SIGNIN_HEADER).text
@@ -18,6 +19,7 @@ class SignInPage(Page):
         self.verify_element_text(expected_result, *self.SIGNIN_HEADER)
         # Verify email field present
         self.driver.find_element(*self.EMAIL)
+
 
     def verify_email_is_present(self):
         assert self.driver.find_element(*self.EMAIL).is_displayed(), 'Email field not shown'

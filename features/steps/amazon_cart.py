@@ -34,6 +34,11 @@ def verify_product_name(context, product):
     context.app.cart_page.verify_cart_has_correct_product(product)
 
 
+    # part_name = context.product_name[:30]
+    # context.app.cart_page.verify_cart_has_correct_product(part_name)
+
+
+
 @then('Verify Your Amazon Cart is empty')
 def verify_cart_is_empty(context):
     # expected_result = 'Your Amazon Cart is empty'
