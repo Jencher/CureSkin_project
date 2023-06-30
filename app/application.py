@@ -5,6 +5,8 @@ from pages.cart_page import CartPage
 from pages.sign_in_page import SignInPage
 from pages.product_page import ProductPage
 
+
+
 class Application:
 
     def __init__(self, driver):

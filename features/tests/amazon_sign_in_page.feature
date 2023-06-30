@@ -9,6 +9,7 @@ Feature: Amazon Sign-in tests
     Then Verify sign-in text is visible
     Then Verify email field is presented
 
+    @smoke
   Scenario: Sign In page can be opened from SignIn popup
     Given Open Amazon main page
     When Click on button from SignIn popup
