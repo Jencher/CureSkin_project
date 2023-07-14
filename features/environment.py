@@ -25,14 +25,14 @@ def browser_init(context, test_name):
     :param context: Behave context
     :param test_name: scenario.name
     """
-    # driver_path = ChromeDriverManager().install()
-    # service = Service(driver_path)
-    # context.driver = webdriver.Chrome(service=service)
-    #
+    driver_path = ChromeDriverManager().install()
+    service = Service(driver_path)
+    context.driver = webdriver.Chrome(service=service)
+
 
     # ############################### FIREFOX ######################
-    service = FirefoxService(executable_path='/Users/bill/Desktop/AutomationQA/python-selenium-automation/geckodriver')
-    context.driver = webdriver.Firefox(service=service)
+    # service = FirefoxService(executable_path='/Users/bill/Desktop/AutomationQA/python-selenium-automation/geckodriver')
+    # context.driver = webdriver.Firefox(service=service)
     #  ##############################################################
 
     # context.driver = webdriver.Safari()
