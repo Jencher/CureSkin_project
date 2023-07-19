@@ -2,7 +2,7 @@ import allure
 from allure_commons.types import AttachmentType
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.wait import WebDriverWait
@@ -25,9 +25,9 @@ def browser_init(context, test_name):
     :param context: Behave context
     :param test_name: scenario.name
     """
-    driver_path = ChromeDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Chrome(service=service)
+    # driver_path = ChromeDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Chrome(service=service)
 
 
     # ############################### FIREFOX ######################
@@ -38,14 +38,19 @@ def browser_init(context, test_name):
     # context.driver = webdriver.Safari()
 
     #### HEADLESS MODE ####
-    # driver_path = ChromeDriverManager().install()
-    # service = Service(driver_path)
-    # options = webdriver.ChromeOptions()
-    # options.add_argument('--headless')
-    # context.driver = webdriver.Chrome(
-    #     chrome_options=options,
-    #     service=service
-    # )
+    driver_path = ChromeDriverManager().install()
+    service = Service(driver_path)
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    context.driver = webdriver.Chrome(
+        options=options,
+        service=service)
+
+    # chrome_options = Options()
+    # chrome_options.add_argument("--headless")   ### RUN IN GEADLESS MODE WITHOUT A GUI ####
+    # chrome_options.add_argument("--disable-gpu")   ### DISABLE GPU ACCELERATION (optional) ####
+    # driver = webdriver.Chrome(options=chrome_options)
+    #
 
     #### BROWSERSTACK ####
     # desired_cap = {
