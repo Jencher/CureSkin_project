@@ -13,10 +13,10 @@ from support.logger import logger
 
 
 # Allure command:
-# python3 -m behave -f allure_behave.formatter:AllureFormatter -o test_results/ features/tests/amazon_sign_in.feature
+# python3 -m behave -f allure_behave.formatter:AllureFormatter -o test_results/ features/tests/cureskin_search.feature
 
 # To run behave with allure in terminal, use:
-# behave -f allure_behave.formatter:AllureFormatter -o test_results/ features/tests/amazon_search.feature
+# behave -f allure_behave.formatter:AllureFormatter -o test_results/ features/tests/cureskin_search.feature
 
 # To generate report, run: allure serve test_results/
 
@@ -94,11 +94,11 @@ def after_step(context, step):
         # )
 
         # Attach a screenshot to Allure report in case the step fails:
-        # allure.attach(
-        #     context.driver.get_screenshot_as_png(),
-        #     name=f'{step.name}.png',
-        #     attachment_type=AttachmentType.PNG
-        # )
+        allure.attach(
+            context.driver.get_screenshot_as_png(),
+            name=f'{step.name}.png',
+            attachment_type=AttachmentType.PNG
+        )
 
 
 def after_scenario(context, feature):
