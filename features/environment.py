@@ -26,8 +26,16 @@ def browser_init(context, test_name):
     :param test_name: scenario.name
     """
     # driver_path = ChromeDriverManager().install()
-    # service = Service(driver_path)
+    # service = Service(executable_path='/Users/bill/Desktop/AutomationQA/CureSkin_project/chromedriver')
     # context.driver = webdriver.Chrome(service=service)
+
+
+    ######## MOBILE EMULATION ################
+    mobile_emulation = {"deviceName": "iPhone 12 Pro"}
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+    context.driver = webdriver.Chrome(options=chrome_options)
+
 
 
     # ############################### FIREFOX ######################
@@ -49,17 +57,18 @@ def browser_init(context, test_name):
 
 
     #### BROWSERSTACK ####
-    desired_cap = {
-        'osVersion': '11',
-        'os': 'Windows',
-        'sessionName': test_name
-    }
-    options = ChromeOptions()
-    options.set_capability('bstack:options', desired_cap)
-    bs_user = 'evgeniiacherniav_jVcIbo'
-    bs_key = 'NGZYyy2DVmZcKAenn395'
-    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
-    context.driver = webdriver.Remote(url, options=options)
+    # desired_cap = {
+    #     'osVersion': '11',
+    #     'os': 'Windows',
+    #     'sessionName': test_name
+    # }
+    # options = ChromeOptions()
+    # options.set_capability('bstack:options', desired_cap)
+    # bs_user = 'evgeniiacherniav_jVcIbo'
+    # bs_key = 'NGZYyy2DVmZcKAenn395'
+    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    # context.driver = webdriver.Remote(url, options=options)
+
 
 
     context.driver.maximize_window()
@@ -103,4 +112,5 @@ def after_step(context, step):
 
 def after_scenario(context, feature):
     context.driver.delete_all_cookies()
+
     context.driver.quit()
